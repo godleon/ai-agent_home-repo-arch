@@ -39,7 +39,7 @@ owner 同意後一次填寫；之後在範圍內執行不再逐次詢問。範�
 
 ## 剩餘清單
 
-未完成的批次，下次先處理並沿用同一組 base／head。格式：批次 `base`／`head`，每個項目一行「路徑｜blob id｜offset｜原因」。
+未完成的批次，下次先處理並沿用同一組 base／head。格式：批次 `base`／`head`，每個項目一行「類型｜讀取版本（`D` 讀 base，其餘讀 head）｜路徑｜blob id｜offset｜原因」。
 
 （無）
 
