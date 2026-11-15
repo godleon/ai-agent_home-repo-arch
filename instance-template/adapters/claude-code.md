@@ -37,7 +37,7 @@ claude --help
 Claude Code 官方列出的專案位置是 `.claude/skills/`，本實例的 skills 在 `.agents/skills/`，所以：
 
 - **預設（manual read fallback）**：`AGENTS.md` 的路由表已透過 `@AGENTS.md` 載入，agent 依表直接讀 `.agents/skills/<name>/SKILL.md`。不需設定，但這不是 skill auto-discovery。
-- **選用**：owner 同意後建立 `.claude/skills` 指向 `../.agents/skills` 的 symlink，再以 `/skills` 讀回。官方文件未說明 symlink 是否支援；讀回看不到四個 skills 就移除 symlink、回到預設。新建頂層 skills 目錄後需 `/reload-skills`。GitHub Copilot CLI 也讀 `.claude/skills/`，同時使用時以其 `/skills` 確認沒有重複。
+- **選用**：owner 同意後建立 `.claude/skills` 指向 `../.agents/skills` 的 symlink，再以 `/skills` 讀回。官方文件未說明 symlink 是否支援；讀回時依本實例 `.agents/skills/` 的實際目錄清單逐項核對名稱與來源，包括預載的 `grill-me`、`grilling`、`skill-creator`。同名時 personal 與 enterprise skill 優先於 project skill，所以名稱出現但來源不是本實例也不算通過，衝突依 [初始化指南](../guides/initialization.md) 記錄。任一項看不到或來源無法確認，就移除 symlink、回到預設。新建頂層 skills 目錄後需 `/reload-skills`。GitHub Copilot CLI 也讀 `.claude/skills/`，同時使用時以其 `/skills` 確認沒有重複。
 
 不要把 skills 複製成第二份；單一位置是 `.agents/skills/`。
 
@@ -121,6 +121,7 @@ claude -p \
 - installed version 是否達到上文的版本門檻；
 - 帳號、provider 與組織政策下實際可用的 models 與 effort；
 - `.claude/skills` symlink 是否被發現；
+- `/skills` 是否顯示足以判斷每個 skill 來源的位置；
 - 實際 subagent 派工時的 model／effort 與權限結果；
 - 排程是否在預定時間實際觸發。
 
