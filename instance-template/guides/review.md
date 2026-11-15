@@ -16,6 +16,7 @@
 - Wiki 草稿（`status: draft`）；
 - owner 明確確認的 Memory 條目；
 - 機械修正：索引、連結、格式；
+- [EXTENSIONS.md](../EXTENSIONS.md) 的盤點：只記錄可觀察的現況，不改變任何能力；
 - 上述變更的本機 commit。
 
 本機 commit 不等於 push 或 merge。只有 [SETUP.md](../SETUP.md) 的同步授權（或當前任務明確授予的同步範圍）涵蓋時才 push。授權仍有效時不重複詢問。
@@ -25,11 +26,13 @@
 - 新增或改變 Wiki 的有效結論，包括第一次把 draft 改為 `valid`；
 - 刪除重要證據或異議；
 - 宣告矛盾已解決；
-- 修改 skills、guides、adapters、分類、範本或目錄結構。
+- 修改 skills、guides、adapters、分類、範本或目錄結構；
+- 新增、升級或移除第三方擴充（依 [extensions.md](extensions.md)，另需 owner 授權）。
 
 ## 需 owner decision
 
 - 個人政策：保存範圍、同步、維護授權、資料邊界；
+- 擴充的安裝、升級、移除，以及 user／global scope 的設定；
 - agent 推論出的 Memory；
 - 重大取捨。
 

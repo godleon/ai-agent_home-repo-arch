@@ -16,6 +16,7 @@
 | 保存或查詢 owner 的背景、偏好、目標、決策、教訓 | `home-memory` | [memory](guides/memory.md) |
 | 來源 ingest、研究、Wiki query／lint | `home-wiki` | [wiki](guides/wiki.md)、[sources](guides/sources.md) |
 | 定期整理、反思 | `home-maintenance` | [maintenance](guides/maintenance.md)、[reflection](guides/reflection.md) |
+| 第三方擴充（skill、extension、plugin、package）的盤點、安裝、升級、移除 | — | [extensions](guides/extensions.md) |
 
 保存任何內容前，先依 [classification](guides/classification.md) 決定類別，再依 [review](guides/review.md) 判斷可直接保存、需提案 review 或需 owner decision。
 

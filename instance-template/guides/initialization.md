@@ -34,7 +34,7 @@ git remote -v                    # 新實例應無輸出
 
 - installed version 與 `--help` 中實際存在的相關 flags；
 - instructions 與 skills 是否載入（用 adapter 的讀回指令確認）；
-- native subagent 或 extension 是否存在；
+- native subagent 或 extension 是否存在；既有第三方擴充依 [extensions.md](extensions.md) 盤點登記；
 - 可用 models，以及**每個 model** 的合法 reasoning／effort 值與其來源。
 
 每項標證據層級：`docs`（官方文件）、`visible`（目前安裝與帳號可見）、`live`（實際執行成功）、`unknown`。官方 model catalog 只是 `docs`，不代表目前帳號可用；不用訓練知識補空格。
@@ -43,7 +43,7 @@ git remote -v                    # 新實例應無輸出
 
 ## 4. 角色與設定提案
 
-依 [roles.md](roles.md) 產出提案表，表後附具體設定 diff：要新增或修改的檔案、欄位與值，以及會保留的既有設定。Model 與 effort 只用第 3 步取得的值；不支援或未知時列出替代方案，讓 owner 選擇。
+依 [roles.md](roles.md) 產出提案表，表後附具體設定 diff：要新增或修改的檔案、欄位與值，以及會保留的既有設定。Model 與 effort 只用第 3 步取得的值；不支援或未知時列出替代方案，讓 owner 選擇。替代方案需要安裝或升級第三方擴充時，該部分依 [extensions.md](extensions.md) 另走提案、review 與授權，不在本步直接套用。
 
 完成條件：owner 對提案表與 diff 明確同意、修改或拒絕；未同意的部分不套用。
 

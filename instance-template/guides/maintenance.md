@@ -42,6 +42,7 @@
    - Wiki：處理尚未 ingest 的來源；依 [wiki.md](wiki.md) lint。
    - 來源：核對 raw 檔 sha256 與索引一致；授權允許網路存取時，核對外部來源版本是否更新，更新者標 `needs-recheck`。
    - 反思：對候選或重複出現的問題依 [reflection.md](reflection.md) 做第一性原理分析。
+   - 擴充：資料範圍包含 `EXTENSIONS.md` 時，依 [extensions.md](extensions.md)「定期核對」找出更新或失效並提案；不安裝、升級或移除。
 5. **只做授權的修改**：修改套用在目前檔案；該區段在 `head` 之後已被改動時不自動修改，留給下一批。等價重複、機械性壞連結、索引與格式可依授權直接修。語意不確定的合併、刪除重要證據或異議、過時政策、有效結論改變，改為提案（[review.md](review.md)）或列入 owner decision 清單。
 6. **維護本身的刪除**：只刪除在 `<base>..<head>` 範圍內已確認不再需要的內容；不刪 source 原檔（除非 owner 另行確認 retention 規則）、不刪異議、失敗紀錄或證據。
 7. **更新狀態**：本批固定範圍全部處理完，才把 checkpoint 前移到批次 `head` 並清空剩餘清單；部分完成或失敗時保留原 base，在剩餘清單寫入批次 `base`／`head` 與未完成項目（類型、讀取版本、路徑、blob id、offset），並記錄失敗原因。在執行紀錄追加一行：日期、base→head、處理數／預算、修改、提案、待 owner 決定、剩餘數、結果。

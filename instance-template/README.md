@@ -24,6 +24,7 @@
 | `reviews/` | 提案與獨立 review 紀錄 |
 | `maintenance/` | 定期維護授權、checkpoint 與執行紀錄 |
 | `REPOS.md` | 指向你其他 repositories 的導覽 |
+| `EXTENSIONS.md` | 已安裝的第三方 skills、extensions、plugins、packages 清單 |
 | `guides/`、`adapters/`、`.agents/skills/` | 框架提供的規則、harness adapter 與 skills |
 
 ## 授權與出處

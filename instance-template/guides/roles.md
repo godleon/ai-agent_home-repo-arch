@@ -50,6 +50,6 @@ harness 缺少 native subagent、per-role model 或 reasoning 設定時，列出
 
 - reviewer 改為另開一個獨立 session 手動執行；
 - 不設定 per-role model，全部沿用主 session；
-- 安裝官方或第三方 extension（需 owner 同意，並記錄來源與版本）。
+- 安裝官方或第三方 extension（依 [extensions.md](extensions.md) 提案、review 並取得 owner 授權）。
 
 owner 選定前不套用；不靜默更換 model、effort 或角色，也不宣稱未生效的設定已生效。
