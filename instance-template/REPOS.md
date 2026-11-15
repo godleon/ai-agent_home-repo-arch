@@ -1,5 +1,8 @@
-# 其他 repositories
+# 外部專案索引
 
-跨 repository 工作時的導覽指標。格式：`- <名稱>（<用途>）：<本機路徑>；缺少時從 <remote> clone。<需要時的提示>`。只放 owner 同意列入的 repositories；指標不代表對該 repository 有寫入或發布授權。
+外部專案的導航指標；規則見 [guides/projects.md](guides/projects.md)。只列 owner 同意列入的專案；列入不代表有寫入或發布授權。
+
+| 名稱／用途 | 何時使用 | 外部本機路徑 | Remote | 入口指引 |
+|---|---|---|---|---|
 
 （尚無條目）

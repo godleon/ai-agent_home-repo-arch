@@ -17,7 +17,8 @@
 
 - raw chat transcripts、credentials、tokens；
 - 大型或二進位檔、owner 無權保存的第三方內容：改用 `.ref.md` 指標；
-- owner 標示 no-save 的內容。
+- owner 標示 no-save 的內容；
+- 外部專案的程式碼、依賴與建置產物：引用方式與最小片段規則見 [projects.md](projects.md)。
 
 ## 大檔
 

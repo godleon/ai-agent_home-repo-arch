@@ -23,7 +23,7 @@
 | `reflections/` | 待確認的反思與改善候選 |
 | `reviews/` | 提案與獨立 review 紀錄 |
 | `maintenance/` | 定期維護授權、checkpoint 與執行紀錄 |
-| `REPOS.md` | 指向你其他 repositories 的導覽 |
+| `REPOS.md` | 外部專案索引：只放導航指標，專案本身在 Home Repo 之外（見 [guides/projects.md](guides/projects.md)） |
 | `EXTENSIONS.md` | 已安裝的第三方 skills、extensions、plugins、packages 清單 |
 | `guides/`、`adapters/`、`.agents/skills/` | 框架提供的規則、harness adapter 與 skills |
 
