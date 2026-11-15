@@ -1,0 +1,2 @@
+# 預載的 skill-creator 保留上游原文（含行尾空白），git diff --check 不檢查這個目錄的行尾空白。
+instance-template/.agents/skills/skill-creator/** whitespace=-trailing-space

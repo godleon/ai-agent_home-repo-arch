@@ -1,6 +1,6 @@
 # 擴充管理
 
-管理**第三方**擴充：別人發布、經 harness 原生機制安裝的 skill、extension、plugin 或 package。清單在 [EXTENSIONS.md](../EXTENSIONS.md)。本實例內建的 `home-*` skills 是框架檔案，owner 自己編寫的 skill 屬 [classification.md](classification.md) 的 Skill 類別；兩者都走 [review.md](review.md)，不登記在清單中。
+管理**第三方**擴充：別人發布、經 harness 原生機制安裝的 skill、extension、plugin 或 package。清單在 [EXTENSIONS.md](../EXTENSIONS.md)。本實例內建的 `home-*` skills 是框架檔案，owner 自己編寫的 skill 屬 [classification.md](classification.md) 的 Skill 類別；兩者都走 [review.md](review.md)，不登記在清單中。隨範本預載的第三方 skills 列在清單「預載」，不是原生安裝；升級或修改依 [skills.md](skills.md) 與 review.md。
 
 ## 第三方擴充與自寫 skill
 
@@ -24,7 +24,7 @@ owner 自行安裝的擴充，只依可觀察證據登記：harness 的已安裝
 3. **提案**：把有界計畫寫成 `reviews/<id>.md`，包含名稱、版本／ref、scope、會新增或修改的檔案與 keys、會保留的既有擴充與設定、同名衝突處理、驗證方式與可能費用、回復方式。移除另列依賴：[roles.md](roles.md) 角色設定、skills、[maintenance/state.md](../maintenance/state.md) 的排程，以及要保留的使用者資料。
 4. **Review 與授權**：依 [review.md](review.md) 提案流程取得獨立 review，並另外取得 owner 授權；review 通過不等於授權，owner 授權也不代替 review。user／global scope 與有費用的 smoke 都要明確包含在授權中。已授權的範圍不重問。沒有 reviewer 時保持 `pending`，不先安裝再補審。
 5. **套用**：只改計畫列出的檔案與 keys，保留既有擴充、設定與同名項目。實際變更超出計畫（例如原生指令會改其他設定或覆寫同名項目）時停止，回報並重新提案。只移除已授權項目，保留使用者資料。
-6. **驗證**：安裝、載入（harness 讀回看得到）、最小 smoke（實際使用一次）三者分開記錄，前者成功不代表後者成功。無法測試寫 `unverified` 與原因。
+6. **驗證**：安裝、載入（harness 讀回看得到）、最小 smoke（實際使用一次）三者分開記錄，前者成功不代表後者成功。無法測試寫 `unverified` 與原因。類型是 skill 時，另依 [skills.md](skills.md)「新增或修改 skill」用 `skill-creator` 驗證並記錄。
 7. **登記**：更新 EXTENSIONS.md 該列並本機 commit。完成條件：清單反映實際狀態，包括失敗與未驗證項目。
 
 ## 回復

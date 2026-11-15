@@ -24,9 +24,9 @@
 | `reviews/` | 提案與獨立 review 紀錄 |
 | `maintenance/` | 定期維護授權、checkpoint 與執行紀錄 |
 | `REPOS.md` | 外部專案索引：只放導航指標，專案本身在 Home Repo 之外（見 [guides/projects.md](guides/projects.md)） |
-| `EXTENSIONS.md` | 已安裝的第三方 skills、extensions、plugins、packages 清單 |
-| `guides/`、`adapters/`、`.agents/skills/` | 框架提供的規則、harness adapter 與 skills |
+| `EXTENSIONS.md` | 預載與已安裝的第三方 skills、extensions、plugins、packages 清單 |
+| `guides/`、`adapters/`、`.agents/skills/` | 框架提供的規則、harness adapter 與 skills（含預載的 `grill-me`、`grilling`、`skill-creator`，見 [guides/skills.md](guides/skills.md)） |
 
 ## 授權與出處
 
-框架衍生的檔案（guides、adapters、skills、範本）依 [FRAMEWORK-LICENSE](FRAMEWORK-LICENSE)（MIT）授權；你自行加入的 Memory、Wiki、來源與紀錄屬於你，不受該授權影響。概念出處見 [ATTRIBUTION.md](ATTRIBUTION.md)。
+框架衍生的檔案（guides、adapters、skills、範本）依 [FRAMEWORK-LICENSE](FRAMEWORK-LICENSE)（MIT）授權；預載的第三方 skills 除外，依各自授權（`skill-creator` 為 Apache-2.0，`grill-me`、`grilling` 為 MIT，全文在各 skill 目錄）。你自行加入的 Memory、Wiki、來源與紀錄屬於你，不受該授權影響。概念與預載 skills 的出處見 [ATTRIBUTION.md](ATTRIBUTION.md)。

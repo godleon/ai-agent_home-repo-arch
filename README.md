@@ -12,6 +12,8 @@
 
 本框架在三者之上加入：保存分類、提案與獨立 review、owner decision、來源版本追蹤、有預算的定期整理，以及四個 harness 的 adapter 指南。來源與差異說明見 [instance-template/ATTRIBUTION.md](instance-template/ATTRIBUTION.md)。
 
+範本預載三個第三方 skills：遇到必要資訊或決策缺口時分輪釐清的 `grill-me`（及其依賴 `grilling`），以及新增或修改 skill 時必用的 `skill-creator`。它們隨範本 bundled，不代表你的 harness 已載入；見 [instance-template/guides/skills.md](instance-template/guides/skills.md)。
+
 ## 結構
 
 | 路徑 | 用途 |
@@ -39,3 +41,5 @@
 ## 授權
 
 [MIT License](LICENSE)，Copyright (c) 2026 godleon。
+
+例外：`instance-template/.agents/skills/` 中預載的第三方 skills 依各自授權——`skill-creator` 為 Apache-2.0，`grill-me` 與 `grilling` 為 MIT（Copyright (c) 2026 Matt Pocock）；授權全文在各 skill 目錄，出處見 [instance-template/ATTRIBUTION.md](instance-template/ATTRIBUTION.md)。

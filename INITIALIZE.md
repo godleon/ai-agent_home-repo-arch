@@ -33,7 +33,7 @@ git rev-parse --show-toplevel           # 必須等於 $TARGET
 git remote -v                           # 必須沒有任何輸出
 ```
 
-`instance-template/.` 會一併複製隱藏的 `.agents/` 目錄，但不會帶入框架的 `.git`。新實例預設**沒有 remote**；跨機同步要等初始化時另外決定 private remote（見新實例的 `guides/initialization.md`）。
+`instance-template/.` 會一併複製隱藏的 `.agents/` 目錄（含 `home-*` 與預載的第三方 skills 及其授權檔），但不會帶入框架的 `.git`。預載只代表檔案已複製，是否被 harness 載入在新實例初始化的第 3 步確認。新實例預設**沒有 remote**；跨機同步要等初始化時另外決定 private remote（見新實例的 `guides/initialization.md`）。
 
 完成條件：`git rev-parse --show-toplevel` 等於目標目錄，`git remote -v` 無輸出，`SETUP.md` 仍為 `status: uninitialized`。
 
@@ -43,4 +43,4 @@ git remote -v                           # 必須沒有任何輸出
 
 ## 之後更新框架
 
-框架有新版本時，不要整包覆蓋實例。以框架的 `git diff <舊 commit> <新 commit> -- instance-template/` 產生變更提案，依實例的 `guides/review.md` 審查後再套用；Memory、Wiki、sources 與紀錄不屬於框架檔案，不被更新覆寫。
+框架有新版本時，不要整包覆蓋實例。以框架的 `git diff <舊 commit> <新 commit> -- instance-template/` 產生變更提案，依實例的 `guides/review.md` 審查後再套用；skills 的變更另依實例的 `guides/skills.md` 驗證。Memory、Wiki、sources 與紀錄不屬於框架檔案，不被更新覆寫。

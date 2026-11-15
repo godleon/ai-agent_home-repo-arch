@@ -28,8 +28,8 @@ status: uninitialized
 
 證據層級：`docs`（官方文件）／`visible`（目前安裝與帳號可見）／`live`（實際執行成功）／`unknown`。
 
-| Harness | 版本與查證指令 | Instructions 載入 | Skills 發現 | Native subagent | Models／effort 來源 | 證據層級 |
-|---|---|---|---|---|---|---|
+| Harness | 版本與查證指令 | Instructions 載入 | Skills 發現（含預載與同名衝突） | skill-creator 依賴 | Native subagent | Models／effort 來源 | 證據層級 |
+|---|---|---|---|---|---|---|---|
 
 ## 角色設計
 

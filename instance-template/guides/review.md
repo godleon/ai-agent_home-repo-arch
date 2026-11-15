@@ -26,7 +26,7 @@
 - 新增或改變 Wiki 的有效結論，包括第一次把 draft 改為 `valid`；
 - 刪除重要證據或異議；
 - 宣告矛盾已解決；
-- 修改 skills、guides、adapters、分類、範本或目錄結構；
+- 修改 skills、guides、adapters、分類、範本或目錄結構；skill 的新增或修改另依 [skills.md](skills.md) 驗證，結果寫在提案中；
 - 新增、升級或移除第三方擴充（依 [extensions.md](extensions.md)，另需 owner 授權）。
 
 ## 需 owner decision
