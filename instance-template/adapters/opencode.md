@@ -9,7 +9,7 @@
 - 初始化先跑 `opencode --version` 判斷版本，再決定讀哪一版：
   - `2.x`：照本頁；和本頁不符時以該版 `--help` 為準，差異記入 SETUP.md。
   - `1.x`：改查 V1 文件與該版 `--help`，不套用本頁的 V2 欄位。
-  - 無法判斷：不寫任何 OpenCode 設定，只用 `AGENTS.md` 與直接讀 skill 檔的文字流程，版本記為 `unknown`。
+  - 無法判斷：不寫任何 OpenCode 設定，只用 `AGENTS.md` 與直接讀 skill 檔的文字流程，版本記為 `unknown`。skill 被拒絕的判斷仍照下方「Skills」的權限一項。
 - 不安裝、不升級、不 migrate 既有設定（官方 V1→V2 轉換是選用步驟）；需要時另提案。
 
 ## 能力摘要
@@ -60,7 +60,9 @@ opencode debug --help
   2. 在 session 中用 `@<skill-id>` 明確載入（例如 `@grill-me`），確認 skill 工具回報的 base directory 是本實例的 `.agents/skills/<skill-id>/`。
 
   只看到名稱不算通過。有同 ID 衝突或來源無法確認時，依[初始化指南](../guides/initialization.md)直接讀本實例的檔案，並記錄衝突。
-- **權限**：`skill` 權限或 `skill.use` policy 拒絕某個 skill 時，該 skill 會被隱藏或拒絕載入。這是 owner 或管理者設定的限制：記為受阻並回報，不改用直接讀檔繞過。
+- **權限**：`skill` 權限或 `skill.use` policy 拒絕某個 skill 時，該 skill 會被隱藏或拒絕載入。V1 的 `permission.skill` 設為 `deny` 也一樣；V1 agent 設 `tools.skill: false` 會停用整個 skill 工具，這是刻意停用，不算「沒有原生 skill 工具」。這些都是 owner 或管理者設定的限制：記為受阻並回報，不改用直接讀檔繞過。
+  - 「沒出現在清單」不等於「沒被發現」。V1 與 V2 都會發現專案路徑上的 `.agents/skills/`，本實例 skills 也都有 `description`。從本實例內啟動、skill 清單卻沒有 `grill-me`、`grilling` 等本實例 skill 時，依官方疑難排解無法排除權限或 policy 拒絕（V1 另列同名衝突），一律記為受阻，請 owner 檢查權限與同名來源。
+  - 受阻時不自行修改權限。是否調整由 owner 決定；調整屬設定變更，依初始化第 5 步提案、套用與讀回。managed 或系統 policy 的拒絕無法由專案設定解除。
 - skill 目錄中的 `agents/openai.yaml` 是 Codex 用的 metadata，OpenCode 文件沒有提到，不把它當成 OpenCode 設定。
 
 ## 角色 profile
@@ -182,5 +184,5 @@ opencode run --agent plan --format json \
 - [Troubleshooting](https://opencode.ai/docs/troubleshooting/)
 - [API reference](https://opencode.ai/docs/api/)
 - [Config schema](https://opencode.ai/config.json)
-- [V1 文件](https://opencode.ai/v1/docs/)
+- [V1 文件](https://opencode.ai/v1/docs/)、[V1 Skills](https://opencode.ai/v1/docs/skills/)
 - [官方 repository（CLI 原始碼，`v2.3.0`）](https://github.com/anomalyco/opencode/tree/v2.3.0/packages/cli/src/commands)

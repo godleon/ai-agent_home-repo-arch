@@ -19,7 +19,10 @@ git remote -v                    # 新實例應無輸出
 
 第 1 步通過後就開始，不等第 3 步的 harness 讀回。初始化一律用本實例的 `grill-me` 做這段訪談，不是遇到缺口才用：
 
-- **載入**：直接讀 [.agents/skills/grill-me/SKILL.md](../.agents/skills/grill-me/SKILL.md)，照它讀相對路徑的 `../grilling/SKILL.md`。只有確認原生 skill 工具載入的是本實例路徑時才改用工具；有同名的使用者／全域 skill 或來源無法確認時，用直接讀取。
+- **載入**：不必先完成第 3 步的盤點或原生讀回，但不繞過 harness 對 skill 的權限限制。以下規則同時適用 `grill-me` 與它依賴的 `grilling`：
+  - **已知被拒絕或停用**：原生 skill 工具拒絕載入，或已讀到的設定／policy 拒絕或停用它們。記入 SETUP.md「未完成或受阻」並告知 owner，停止用途訪談與依賴它的步驟，不改用直接讀檔替代。
+  - **清單中沒有**：harness 有 skill 清單卻沒列出它們時，只讀目前 harness adapter 的「Skills」一節（例如 [OpenCode](../adapters/opencode.md) 會把被拒絕的 skill 隱藏）。依 adapter 無法排除被拒絕或停用時，照上一項處理；能排除時照下一項直接讀取。
+  - **其他情況**：沒有原生 skill 工具、adapter 說明不會發現 `.agents/skills/`、有同名的使用者／全域 skill，或來源無法確認時，直接讀 [.agents/skills/grill-me/SKILL.md](../.agents/skills/grill-me/SKILL.md)，照它讀相對路徑的 `../grilling/SKILL.md`。只有確認原生 skill 工具載入的是本實例路徑時才改用工具。
 - **範圍**：本步的 design tree 就是下方題綱，對應 SETUP.md「用途訪談」各欄與 owner 主要使用的 harness，不另做問卷。
 - **分輪**：每輪只問前提已確定的題目，每題附推薦答案，措辭讓 owner 回答「是」即採納。題目多時可拆成 2–3 題的小輪，不強制固定數量；答案改變後續題目時重算下一輪。
 - **事實自己查**：已安裝哪些 harness（例如 `command -v <cli>`、`<cli> --version`）、候選路徑是否存在、位置檢查結果等，先自己查，把結果寫進題目，只請 owner 做決定。

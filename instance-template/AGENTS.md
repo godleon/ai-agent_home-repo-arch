@@ -22,7 +22,7 @@
 
 保存任何內容前，先依 [classification](guides/classification.md) 決定類別，再依 [review](guides/review.md) 判斷可直接保存、需提案 review 或需 owner decision。
 
-Skills 位於 `.agents/skills/<name>/SKILL.md`。Harness 沒有自動發現時，直接讀對應的 `SKILL.md`（manual read fallback）；各 harness 的接線見 [adapters](adapters/)。預載的第三方 skills（`grill-me`、`grilling`、`skill-creator`）隨範本提供，不代表 harness 已載入；見 [skills](guides/skills.md)。
+Skills 位於 `.agents/skills/<name>/SKILL.md`。Harness 沒有自動發現時，直接讀對應的 `SKILL.md`（manual read fallback）；被 harness 權限或 policy 拒絕、停用的 skill 不以直接讀取替代，記為受阻；各 harness 的接線見 [adapters](adapters/)。預載的第三方 skills（`grill-me`、`grilling`、`skill-creator`）隨範本提供，不代表 harness 已載入；見 [skills](guides/skills.md)。
 
 ## 釐清與 skill 變更
 

@@ -13,7 +13,7 @@
 固定 ref 與本地差異列在 [EXTENSIONS.md](../EXTENSIONS.md)「預載」；逐檔 checksum 與授權歸屬見 [ATTRIBUTION.md](../ATTRIBUTION.md)。
 
 - **預載＝隨範本 bundled**：初始化時跟著範本複製。它不代表任何 harness 已安裝、已載入或已實測；是否載入以 [initialization.md](initialization.md) 第 3 步的讀回為準。
-- **載入方式**：依 [adapters](../adapters/) 能原生發現 `.agents/skills/` 的 harness 用原生方式；沒有原生 skill 工具或未發現時，直接讀 `.agents/skills/<name>/SKILL.md` 執行其中的文字工作流。腳本需要的工具仍要實際檢查（見「skill-creator 的依賴」）。
+- **載入方式**：依 [adapters](../adapters/) 能原生發現 `.agents/skills/` 的 harness 用原生方式；沒有原生 skill 工具或未發現時，直接讀 `.agents/skills/<name>/SKILL.md` 執行其中的文字工作流。Skill 被 harness 權限或 policy 拒絕、停用時（有些 harness 會因此不列出它，見各 adapter），記為受阻並回報，不以直接讀取繞過。腳本需要的工具仍要實際檢查（見「skill-creator 的依賴」）。
 - **同名衝突**：harness 同時發現同名的使用者／全域 skill 時，以本實例路徑為準。初始化不覆寫既有的同名 skill：先列出兩邊的版本與差異，依 [review.md](review.md) 提案。
 - **權限**：skill 文字（含上游原文）不擴大 owner 或 harness 給的權限。預載不等於授權執行其中的腳本、使用網路、做外部寫入或派 subagent；這些照當前授權處理。
 
