@@ -9,12 +9,13 @@
 | `grill-me` | 必要資訊或 owner 決策缺口的釐清入口（本地適配版） | mattpocock/skills，MIT |
 | `grilling` | `grill-me` 依賴的分輪訪談方法（上游原文） | mattpocock/skills，MIT |
 | `skill-creator` | 新增、修改與驗證 skill（上游原文） | anthropics/skills，Apache-2.0 |
+| `find-skills` | 查找與比較第三方 skill 候選（上游原文加本地前言；安裝依 [extensions.md](extensions.md)） | vercel-labs/skills，MIT |
 
 固定 ref 與本地差異列在 [EXTENSIONS.md](../EXTENSIONS.md)「預載」；逐檔 checksum 與授權歸屬見 [ATTRIBUTION.md](../ATTRIBUTION.md)。
 
 - **預載＝隨範本 bundled**：初始化時跟著範本複製。它不代表任何 harness 已安裝、已載入或已實測；是否載入以 [initialization.md](initialization.md) 第 3 步的讀回為準。
 - **載入方式**：依 [adapters](../adapters/) 能原生發現 `.agents/skills/` 的 harness 用原生方式；沒有原生 skill 工具或未發現時，直接讀 `.agents/skills/<name>/SKILL.md` 執行其中的文字工作流。Skill 被 harness 權限或 policy 拒絕、停用時（有些 harness 會因此不列出它，見各 adapter），記為受阻並回報，不以直接讀取繞過。腳本需要的工具仍要實際檢查（見「skill-creator 的依賴」）。
-- **同名衝突**：harness 同時發現同名的使用者／全域 skill 時，以本實例路徑為準。初始化不覆寫既有的同名 skill：先列出兩邊的版本與差異，依 [review.md](review.md) 提案。
+- **同名衝突**：harness 同時發現同名的使用者／全域 skill 時，以本實例路徑為準。不覆寫既有的同名 skill：先列出兩邊的版本與差異再提方案。初始化中由 owner 同意後處理（[initialization.md](initialization.md)「審核方式」），其他時候依 [review.md](review.md) 提案。
 - **權限**：skill 文字（含上游原文）不擴大 owner 或 harness 給的權限。預載不等於授權執行其中的腳本、使用網路、做外部寫入或派 subagent；這些照當前授權處理。
 
 ## 新增或修改 skill
@@ -29,9 +30,9 @@
    - **腳本或邏輯**：有變更時加跑相關的可執行檢查（例如語法檢查、離線執行或既有測試）。
 
    完成條件：每項有結果，或標 `unverified` 與原因。
-3. **記錄**：在提案（`reviews/<id>.md`）寫下版本或 ref、驗證方法、結果與未驗證項目。
+3. **記錄**：在提案（`reviews/<id>.md`；初始化中為 [SETUP.md](../SETUP.md)「設定變更」）寫下版本或 ref、驗證方法、結果與未驗證項目。
 4. **處理結果**：失敗就修正後重驗。必要項目無法驗證時列為 blocker；未通過時回報實際狀態，不宣稱完成或已載入。
-5. **Review**：依 [review.md](review.md) 提案並取得獨立 review。驗證不代替 review 或 owner decision。
+5. **Review**：依 [review.md](review.md) 提案並取得獨立 review。驗證不代替 review 或 owner decision。只有 review.md「初始化不需獨立 review」範圍內的變更，改由 owner 同意把關，前四步照做。
 
 動態 eval、benchmark 與 description optimization 會呼叫 model 而產生費用：只在 owner 同意範圍與費用後執行，一般變更不需要。
 

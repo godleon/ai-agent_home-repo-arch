@@ -11,6 +11,7 @@
 | `grill-me` | skill | <https://github.com/mattpocock/skills> | `5863806dd4e15c63174bee4e7515a4256792ecfa` | 必要資訊或決策缺口的釐清入口 | MIT | 本地適配（見 ATTRIBUTION.md） |
 | `grilling` | skill | <https://github.com/mattpocock/skills> | `5863806dd4e15c63174bee4e7515a4256792ecfa` | `grill-me` 依賴的訪談方法 | MIT | 無；另附上游根目錄 `LICENSE` |
 | `skill-creator` | skill | <https://github.com/anthropics/skills> | `1780c5e5a552fd4d1c9d6a7b0cab26b0c2bef064` | 新增、修改與驗證 skill | Apache-2.0 | 無 |
+| `find-skills` | skill | <https://github.com/vercel-labs/skills> | `50894c1d98bc45ca1ab127213e59d6525065b5e7` | 查找與比較第三方 skill 候選 | MIT | 本地適配：加入本實例前言（見 ATTRIBUTION.md）；另附上游根目錄 `LICENSE` |
 
 ## 實例安裝觀測
 
@@ -27,7 +28,7 @@
 - **Scope**：`project` 或 `user`；寫明設定位置的類別，不寫個人路徑。
 - **來源**：canonical 官方來源 URL。
 - **版本／ref**：實際安裝的版本、tag 或 commit；浮動名稱（例如 latest、main）不算。
-- **授權／review**：owner 授權日期與範圍、`reviews/log.md` 的提案 ID；owner 自行安裝而無紀錄者寫 `unknown`。
+- **授權／review**：owner 授權日期與範圍、`reviews/log.md` 的提案 ID；初始化中安裝者以 `not-required (initialization)` 取代提案 ID（見 [guides/extensions.md](guides/extensions.md)「初始化中的擴充」）；owner 自行安裝而無紀錄者寫 `unknown`。
 - **安裝、載入、Smoke**：分開填 `ok`、`failed`、`unverified` 或 `not-run`，附簡短原因。
 - **升級／回復**：前一版本或 ref、回復方式與限制；沒有可回復的舊版時寫明。
 

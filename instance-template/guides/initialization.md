@@ -2,6 +2,8 @@
 
 依序完成以下步驟，每步達到完成條件才進下一步。結果寫入 [SETUP.md](../SETUP.md)。某一步因能力缺失受阻時，記在 SETUP.md 的「未完成或受阻」，**只停止依賴它的步驟**，其他步驟繼續。
 
+**審核方式**：本流程（含重新設定）不需獨立 review，界線見 [review.md](review.md)「初始化不需獨立 review」。每項變更依序是：提出具體方案或設定 diff → owner 同意 → 套用 → 讀回或 smoke → 記入 SETUP.md。缺資訊、授權或驗證的項目留在「未完成或受阻」。
+
 ## 1. 確認位置
 
 ```sh
@@ -51,7 +53,7 @@ git remote -v                    # 新實例應無輸出
 依 owner 使用的 harness 讀對應 adapter：[Copilot CLI](../adapters/copilot-cli.md)、[Claude Code](../adapters/claude-code.md)、[Codex CLI](../adapters/codex-cli.md)、[Pi](../adapters/pi.md)、[OpenCode](../adapters/opencode.md)。每個 harness 記錄：
 
 - installed version 與 `--help` 中實際存在的相關 flags；
-- instructions 與 skills 是否載入（用 adapter 的讀回指令確認），包括預載的 `grill-me`、`grilling`、`skill-creator`；沒有原生發現時記為 manual read fallback。Harness 也發現同名的使用者／全域 skill 時列出兩邊版本，不覆寫，依 [skills.md](skills.md) 提案；
+- instructions 與 skills 是否載入（用 adapter 的讀回指令確認），包括預載的 `grill-me`、`grilling`、`skill-creator`、`find-skills`；沒有原生發現時記為 manual read fallback。Harness 也發現同名的使用者／全域 skill 時列出兩邊版本，不覆寫；需要處理時在第 4 步提出具體方案，涉及 skill 變更時依 [skills.md](skills.md) 驗證；
 - `skill-creator` 腳本的依賴（例如 `python3 --version`、`python3 -c 'import yaml'`、`command -v claude`）：只查不裝，缺少者記下來；
 - native subagent 或 extension 是否存在；既有第三方擴充依 [extensions.md](extensions.md) 盤點登記；
 - 可用 models，以及**每個 model** 的合法 reasoning／effort 值與其來源。
@@ -62,7 +64,7 @@ git remote -v                    # 新實例應無輸出
 
 ## 4. 角色與設定提案
 
-依 [roles.md](roles.md) 產出提案表，表後附具體設定 diff：要新增或修改的檔案、欄位與值，以及會保留的既有設定。Model 與 effort 只用第 3 步取得的值；不支援或未知時列出替代方案，讓 owner 選擇。用 `grill-me` 一輪提出：從最少角色開始，說明成本與延遲取捨，每項以提案值為推薦答案，問 owner 接受或調整；不請 owner 自己想 model ID 或 effort 值。替代方案需要安裝或升級第三方擴充時，該部分依 [extensions.md](extensions.md) 另走提案、review 與授權，不在本步直接套用。
+依 [roles.md](roles.md) 產出提案表，表後附具體設定 diff：要新增或修改的檔案、欄位與值，以及會保留的既有設定。Model 與 effort 只用第 3 步取得的值；不支援或未知時列出替代方案，讓 owner 選擇。用 `grill-me` 一輪提出：從最少角色開始，說明成本與延遲取捨，每項以提案值為推薦答案，問 owner 接受或調整；不請 owner 自己想 model ID 或 effort 值。替代方案需要安裝或升級第三方擴充時，依 [extensions.md](extensions.md)「初始化中的擴充」查證並列入本步提案，由 owner 授權。
 
 完成條件：owner 對提案表與 diff 明確同意、修改或拒絕；未同意的部分不套用。
 

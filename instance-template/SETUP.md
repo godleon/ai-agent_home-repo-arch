@@ -38,8 +38,10 @@ status: uninitialized
 
 ## 設定變更
 
-| 檔案或設定 | 變更摘要 | Owner 同意 | 讀回結果 |
-|---|---|---|---|
+初始化與重新設定的提案、授權與結果記在這裡。Review 欄寫 `not-required (initialization)`（見 [guides/review.md](guides/review.md)「初始化不需獨立 review」），不代表已審查。
+
+| 檔案或設定 | 變更摘要（提案） | Owner 同意 | Review | 驗證與讀回結果 |
+|---|---|---|---|---|
 
 ## Smoke
 

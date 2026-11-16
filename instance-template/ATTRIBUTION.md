@@ -35,15 +35,17 @@
 | `grill-me` | <https://github.com/mattpocock/skills> | `5863806dd4e15c63174bee4e7515a4256792ecfa` | `skills/productivity/grill-me` | MIT，Copyright (c) 2026 Matt Pocock；全文見該目錄 `LICENSE` |
 | `grilling` | 同上 | 同上 | `skills/productivity/grilling` | 同上 |
 | `skill-creator` | <https://github.com/anthropics/skills> | `1780c5e5a552fd4d1c9d6a7b0cab26b0c2bef064` | `skills/skill-creator` | Apache-2.0；全文見該目錄 `LICENSE.txt` |
+| `find-skills` | <https://github.com/vercel-labs/skills> | `50894c1d98bc45ca1ab127213e59d6525065b5e7` | `skills/find-skills` | MIT，Copyright (c) 2026 Vercel, Inc.；全文見該目錄 `LICENSE` |
 
-上游 `grill-me` 只是要求以 Skill 工具呼叫 `grilling` 的 wrapper，所以一併預載 `grilling`。mattpocock/skills 的授權在 repository 根目錄，所以把根目錄 `LICENSE` 原樣複製到 `grill-me/` 與 `grilling/`。`skill-creator` 上游目錄共 18 個檔案，全部原樣保留。
+上游 `grill-me` 只是要求以 Skill 工具呼叫 `grilling` 的 wrapper，所以一併預載 `grilling`。mattpocock/skills 的授權在 repository 根目錄，所以把根目錄 `LICENSE` 原樣複製到 `grill-me/` 與 `grilling/`。`skill-creator` 上游目錄共 18 個檔案，全部原樣保留。`find-skills` 上游目錄只有 `SKILL.md`；vercel-labs/skills 的授權同樣在根目錄，所以把根目錄 `LICENSE` 原樣複製到 `find-skills/`。只預載這個 skill 的文字，不包含 skills CLI 本身。
 
 ### 本地差異
 
-只有 `grill-me` 經本地適配，其餘檔案與上游 blob 相同：
+只有 `grill-me` 與 `find-skills/SKILL.md` 經本地適配，其餘檔案與上游 blob 相同：
 
 - `grill-me/SKILL.md`：改寫為繁體中文；description 加入「任務中遇到必要資訊或決策缺口」的自動觸發；移除 `disable-model-invocation: true`；把「Call the Skill tool with "grilling"」改為有原生 skill 工具時呼叫、沒有時直接讀 `../grilling/SKILL.md`，並以本實例路徑為準；加入「本實例範圍」（只問必要缺口、事實自己查、subagent 只在可用且已授權時使用、等待規則依 `AGENTS.md`）。
 - `grill-me/agents/openai.yaml`：`policy.allow_implicit_invocation` 由 `false` 改為 `true`。
+- `find-skills/SKILL.md`：只在 frontmatter 與 `# Find Skills` 之間插入繁體中文的「本實例適配」一節（先依本實例 scope 與 owner 授權使用、不自動執行 `npx skills` 或 global／user scope 寫入、人氣不代替實際讀內容、預設不加 `-g -y`、新 skill 改用 `skill-creator`）。frontmatter 與其後的上游本文未改；刪除該節（從 `## 本實例適配` 到 `# Find Skills` 之前的全部行）後，與上游 blob 相同。
 
 ### 檔案清單
 
@@ -75,5 +77,7 @@
 | `skill-creator/scripts/run_eval.py` | `e58c70bea39d5b252a1e819f242bbdcdf20e8b87` | 原文 |
 | `skill-creator/scripts/run_loop.py` | `30a263d674ef19de11c756d6f7537f91a421909e` | 原文 |
 | `skill-creator/scripts/utils.py` | `51b6a07dd57174197a937034b7eecebd5768ff8a` | 原文 |
+| `find-skills/SKILL.md` | `a41bdd074bb587afd861332cf2f473f3154de4d7` | 本地適配（插入前言） |
+| `find-skills/LICENSE` | `eabe3008f6c0275929faa8b07d406e82717648cc` | 原文（上游根目錄 `LICENSE`） |
 
 `skill-creator/scripts/` 中除 `__init__.py`、`utils.py` 外的腳本，在上游為可執行檔（mode 100755），本地相同。

@@ -2,6 +2,17 @@
 
 決定一項變更能直接保存、需要提案與獨立 review，或需要 owner decision。分類先依 [classification.md](classification.md)。
 
+## 初始化不需獨立 review
+
+`home-init` 依 [initialization.md](initialization.md) 進行的初始化，以及已初始化實例中 owner 明確指定範圍的重新設定，不走本檔的獨立 review：不找 reviewer、不為 review 建立 `reviews/<id>.md` 或 `reviews/log.md` 列，也不等待 review 狀態。範圍內的設定、角色、排程、擴充安裝與同名 skill 處理，改由以下各項把關：
+
+- 具體方案或設定 diff 經 owner 同意後才套用；已有效的授權不重問；
+- skill 的新增或修改仍依 [skills.md](skills.md) 用 `skill-creator` 驗證；
+- 來源、版本、權限與 remote 依各步驟核對；
+- 讀回或 smoke 驗證，結果記在 [SETUP.md](../SETUP.md)「設定變更」，擴充另記在 [EXTENSIONS.md](../EXTENSIONS.md)；review 欄寫 `not-required (initialization)`，不寫成已審查。
+
+資訊、授權或驗證不足的項目保持 pending，不覆寫未授權的既有內容。這個例外只涵蓋上述初始化與指定範圍的重新設定；一般任務、框架升級、初始化以外的 skill 新增或修改、Memory／Wiki 維護，即使在同一 session 或被稱為「初始化」，仍依本檔以下規則。
+
 ## 可直接保存
 
 以下條件**全部**成立時，writer 可直接寫入並做本機 commit，不需另外詢問：

@@ -4,6 +4,7 @@
 
 ## 第三方擴充與自寫 skill
 
+- 找候選 skill 可用預載的 [find-skills](../.agents/skills/find-skills/SKILL.md)；它只產出候選與證據，安裝仍依下方流程。
 - 現成擴充符合需求就用它：以該 harness 的原生安裝與載入機制處理，不要求 owner 先自行開發，也不改寫成 guide 或 wrapper skill。
 - 能力不互換：一個 harness 的擴充不代表其他 harness 有同等能力。缺口依 [roles.md](roles.md)「能力不足時」列替代方案；不新增跨 harness 的 package manager 或 installer。
 - 自寫 skill 只在方法經多次實際使用驗證後提議，放 `.agents/skills/`，依 review.md 提案。
@@ -15,9 +16,13 @@ owner 自行安裝的擴充，只依可觀察證據登記：harness 的已安裝
 
 未登記或不在預設中的擴充，不代表可以刪除。盤點只記錄現況、不改變任何能力，在 owner 已授權的任務範圍內可直接保存並本機 commit。
 
+## 初始化中的擴充
+
+在 [initialization.md](initialization.md) 範圍內（含指定範圍的重新設定）新增、升級或移除擴充時，照下一節各步進行，只有兩點不同：第 3 步的計畫寫在初始化提案中，第 4 步只取得 owner 授權、不需獨立 review（界線見 [review.md](review.md)「初始化不需獨立 review」）。Adapter 或其他 guide 提到的安裝前 review，在這個範圍內也由 owner 授權取代；查證、保留既有項目與驗證照常。EXTENSIONS.md 的「授權／review」寫 owner 授權日期、範圍與 `not-required (initialization)`。
+
 ## 新增、升級或移除
 
-每步達到完成條件才進下一步。
+每步達到完成條件才進下一步。初始化範圍內另依上一節。
 
 1. **盤點**：列出相關的既有擴充、同名項目、功能重疊與會碰到的設定 keys。完成條件：衝突與會保留的項目已列出。
 2. **查證**：取得 canonical 官方來源、與 installed harness 相容的實際版本或不可變 ref、原生安裝 scope（project 或 user／global）。擴充可能在本機執行程式碼：依來源文件、manifest 與設定宣告等實際證據，判斷它需要的工具、檔案、網路與資料存取。這是有界的權限判斷，不是完整原始碼稽核；adapter 要求審閱原始碼時，範圍也以此為限。升級另核對版本差異、相容性與權限變動。完成條件：每項有證據或標 `unknown`。

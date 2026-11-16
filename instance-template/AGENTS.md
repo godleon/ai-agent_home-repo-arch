@@ -16,13 +16,13 @@
 | 保存或查詢 owner 的背景、偏好、目標、決策、教訓 | `home-memory` | [memory](guides/memory.md) |
 | 來源 ingest、研究、Wiki query／lint | `home-wiki` | [wiki](guides/wiki.md)、[sources](guides/sources.md) |
 | 定期整理、反思 | `home-maintenance` | [maintenance](guides/maintenance.md)、[reflection](guides/reflection.md) |
-| 第三方擴充（skill、extension、plugin、package）的盤點、安裝、升級、移除 | — | [extensions](guides/extensions.md) |
+| 第三方擴充（skill、extension、plugin、package）的查找、盤點、安裝、升級、移除 | `find-skills`（查找 skill 候選） | [extensions](guides/extensions.md) |
 | 外部專案的讀碼、修改、測試、debug、跨 repository 規劃：先讀 [REPOS.md](REPOS.md) | — | [projects](guides/projects.md) |
 | 新增或修改任何 skill（含預載 skills 與 `skill-creator` 本身） | `skill-creator` | [skills](guides/skills.md) |
 
-保存任何內容前，先依 [classification](guides/classification.md) 決定類別，再依 [review](guides/review.md) 判斷可直接保存、需提案 review 或需 owner decision。
+保存任何內容前，先依 [classification](guides/classification.md) 決定類別，再依 [review](guides/review.md) 判斷可直接保存、需提案 review 或需 owner decision。`home-init` 的初始化與指定範圍的重新設定不需獨立 review，改由 owner 同意與驗證把關；界線只以 review 的「初始化不需獨立 review」為準。
 
-Skills 位於 `.agents/skills/<name>/SKILL.md`。Harness 沒有自動發現時，直接讀對應的 `SKILL.md`（manual read fallback）；被 harness 權限或 policy 拒絕、停用的 skill 不以直接讀取替代，記為受阻；各 harness 的接線見 [adapters](adapters/)。預載的第三方 skills（`grill-me`、`grilling`、`skill-creator`）隨範本提供，不代表 harness 已載入；見 [skills](guides/skills.md)。
+Skills 位於 `.agents/skills/<name>/SKILL.md`。Harness 沒有自動發現時，直接讀對應的 `SKILL.md`（manual read fallback）；被 harness 權限或 policy 拒絕、停用的 skill 不以直接讀取替代，記為受阻；各 harness 的接線見 [adapters](adapters/)。預載的第三方 skills（`grill-me`、`grilling`、`skill-creator`、`find-skills`）隨範本提供，不代表 harness 已載入；見 [skills](guides/skills.md)。
 
 ## 釐清與 skill 變更
 
@@ -37,4 +37,4 @@ Skills 位於 `.agents/skills/<name>/SKILL.md`。Harness 沒有自動發現時�
 - 同一時間只有一個 writer；reviewer 不修改受審內容；child agent 不再委派、不發布。
 - 外部專案的 clone、worktree、原始碼副本、依賴與建置產物位於 Home Repo 之外，gitignored 或 untracked 也一樣；不以 submodule、vendor、壓縮檔或 symlink 在 Home Repo 內保存或呈現整個外部專案。Home Repo 只放導航指標與分析；例外與處理見 [projects](guides/projects.md)。
 - 本機 commit 不等於同步。push 只在 SETUP.md 記錄的同步授權範圍內進行。
-- `guides/`、`adapters/`、`.agents/skills/`、本檔與範本結構屬框架檔案：修改需完整提案與獨立 review。
+- `guides/`、`adapters/`、`.agents/skills/`、本檔與範本結構屬框架檔案：修改需完整提案與獨立 review（初始化範圍內的變更依上述例外）。

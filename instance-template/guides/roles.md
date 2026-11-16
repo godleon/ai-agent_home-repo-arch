@@ -5,7 +5,7 @@
 ## 從最少開始
 
 1. 預設只有**主 session**：同時是 supervisor 與唯一 writer。
-2. 需要提案 review 時加上**獨立 reviewer**；沒有它，提案只能保持 `pending`。
+2. 需要提案 review 時加上**獨立 reviewer**；沒有它，提案只能保持 `pending`。初始化本身不需要 reviewer（[review.md](review.md)「初始化不需獨立 review」）；owner 為日後的提案設 reviewer 角色，也不成為初始化的門檻。
 3. 只有在有理由時再加：
    - **reader**：大量閱讀或搜尋，想用較低成本的設定、或與主 session 平行；
    - **獨立 writer**：主 session 只負責協調與驗收、不直接修改時。
@@ -50,6 +50,6 @@ harness 缺少 native subagent、per-role model 或 reasoning 設定時，列出
 
 - reviewer 改為另開一個獨立 session 手動執行；
 - 不設定 per-role model，全部沿用主 session；
-- 安裝官方或第三方 extension（依 [extensions.md](extensions.md) 提案、review 並取得 owner 授權）。
+- 安裝官方或第三方 extension（依 [extensions.md](extensions.md) 提案並取得 owner 授權；初始化以外另需 review）。
 
 owner 選定前不套用；不靜默更換 model、effort 或角色，也不宣稱未生效的設定已生效。

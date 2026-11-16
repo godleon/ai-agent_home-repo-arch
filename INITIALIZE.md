@@ -1,6 +1,6 @@
 # 建立 Home Repo 實例
 
-本檔只負責把範本複製成一個**新的獨立 Git repository**。用途訪談、harness 設定與維護授權在新實例內，依其 `guides/initialization.md` 進行。
+本檔只負責把範本複製成一個**新的獨立 Git repository**。用途訪談、harness 設定與維護授權在新實例內，依其 `guides/initialization.md` 進行。建立與初始化都不需獨立 review，由你的同意與各步驟的檢查把關。
 
 ## 1. 選擇目標目錄
 

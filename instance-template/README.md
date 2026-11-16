@@ -10,7 +10,7 @@
 
 ## 開始使用
 
-在本目錄啟動 GitHub Copilot CLI、Claude Code、Codex CLI、Pi 或 OpenCode，要求「初始化這個 Home Repo」。Agent 會先訪談你的用途、資料邊界、主要任務、成本／延遲偏好、同步與維護需求，再提出角色與設定變更，經你同意後才套用。流程見 [guides/initialization.md](guides/initialization.md)。
+在本目錄啟動 GitHub Copilot CLI、Claude Code、Codex CLI、Pi 或 OpenCode，要求「初始化這個 Home Repo」。Agent 會先訪談你的用途、資料邊界、主要任務、成本／延遲偏好、同步與維護需求，再提出角色與設定變更，經你同意後才套用並驗證；初始化不需要另找 reviewer。流程見 [guides/initialization.md](guides/initialization.md)。
 
 ## 目錄
 
@@ -25,8 +25,8 @@
 | `maintenance/` | 定期維護授權、checkpoint 與執行紀錄 |
 | `REPOS.md` | 外部專案索引：只放導航指標，專案本身在 Home Repo 之外（見 [guides/projects.md](guides/projects.md)） |
 | `EXTENSIONS.md` | 預載與已安裝的第三方 skills、extensions、plugins、packages 清單 |
-| `guides/`、`adapters/`、`.agents/skills/` | 框架提供的規則、harness adapter 與 skills（含預載的 `grill-me`、`grilling`、`skill-creator`，見 [guides/skills.md](guides/skills.md)） |
+| `guides/`、`adapters/`、`.agents/skills/` | 框架提供的規則、harness adapter 與 skills（含預載的 `grill-me`、`grilling`、`skill-creator`、`find-skills`，見 [guides/skills.md](guides/skills.md)） |
 
 ## 授權與出處
 
-框架衍生的檔案（guides、adapters、skills、範本）依 [FRAMEWORK-LICENSE](FRAMEWORK-LICENSE)（MIT）授權；預載的第三方 skills 除外，依各自授權（`skill-creator` 為 Apache-2.0，`grill-me`、`grilling` 為 MIT，全文在各 skill 目錄）。你自行加入的 Memory、Wiki、來源與紀錄屬於你，不受該授權影響。概念與預載 skills 的出處見 [ATTRIBUTION.md](ATTRIBUTION.md)。
+框架衍生的檔案（guides、adapters、skills、範本）依 [FRAMEWORK-LICENSE](FRAMEWORK-LICENSE)（MIT）授權；預載的第三方 skills 除外，依各自授權（`skill-creator` 為 Apache-2.0，`grill-me`、`grilling`、`find-skills` 為 MIT，全文在各 skill 目錄）。你自行加入的 Memory、Wiki、來源與紀錄屬於你，不受該授權影響。概念與預載 skills 的出處見 [ATTRIBUTION.md](ATTRIBUTION.md)。
