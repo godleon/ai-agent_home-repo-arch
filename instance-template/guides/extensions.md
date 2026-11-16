@@ -7,7 +7,7 @@
 - 現成擴充符合需求就用它：以該 harness 的原生安裝與載入機制處理，不要求 owner 先自行開發，也不改寫成 guide 或 wrapper skill。
 - 能力不互換：一個 harness 的擴充不代表其他 harness 有同等能力。缺口依 [roles.md](roles.md)「能力不足時」列替代方案；不新增跨 harness 的 package manager 或 installer。
 - 自寫 skill 只在方法經多次實際使用驗證後提議，放 `.agents/skills/`，依 review.md 提案。
-- 安裝與載入方式查對應 adapter（[Copilot CLI](../adapters/copilot-cli.md)、[Claude Code](../adapters/claude-code.md)、[Codex CLI](../adapters/codex-cli.md)、[Pi](../adapters/pi.md)）。Adapter 沒寫的指令，查 installed `--help` 或與 installed version 相符的官方文件；兩者都查不到就記為受阻，不猜指令。
+- 安裝與載入方式查對應 adapter（[Copilot CLI](../adapters/copilot-cli.md)、[Claude Code](../adapters/claude-code.md)、[Codex CLI](../adapters/codex-cli.md)、[Pi](../adapters/pi.md)、[OpenCode](../adapters/opencode.md)）。Adapter 沒寫的指令，查 installed `--help` 或與 installed version 相符的官方文件；兩者都查不到就記為受阻，不猜指令。
 
 ## 盤點既有擴充
 

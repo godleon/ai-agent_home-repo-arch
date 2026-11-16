@@ -45,7 +45,7 @@ git remote -v                    # 新實例應無輸出
 
 ## 3. 查證 harness 能力
 
-依 owner 使用的 harness 讀對應 adapter：[Copilot CLI](../adapters/copilot-cli.md)、[Claude Code](../adapters/claude-code.md)、[Codex CLI](../adapters/codex-cli.md)、[Pi](../adapters/pi.md)。每個 harness 記錄：
+依 owner 使用的 harness 讀對應 adapter：[Copilot CLI](../adapters/copilot-cli.md)、[Claude Code](../adapters/claude-code.md)、[Codex CLI](../adapters/codex-cli.md)、[Pi](../adapters/pi.md)、[OpenCode](../adapters/opencode.md)。每個 harness 記錄：
 
 - installed version 與 `--help` 中實際存在的相關 flags；
 - instructions 與 skills 是否載入（用 adapter 的讀回指令確認），包括預載的 `grill-me`、`grilling`、`skill-creator`；沒有原生發現時記為 manual read fallback。Harness 也發現同名的使用者／全域 skill 時列出兩邊版本，不覆寫，依 [skills.md](skills.md) 提案；

@@ -10,7 +10,7 @@
 
 ## 開始使用
 
-在本目錄啟動 GitHub Copilot CLI、Claude Code、Codex CLI 或 Pi，要求「初始化這個 Home Repo」。Agent 會先訪談你的用途、資料邊界、主要任務、成本／延遲偏好、同步與維護需求，再提出角色與設定變更，經你同意後才套用。流程見 [guides/initialization.md](guides/initialization.md)。
+在本目錄啟動 GitHub Copilot CLI、Claude Code、Codex CLI、Pi 或 OpenCode，要求「初始化這個 Home Repo」。Agent 會先訪談你的用途、資料邊界、主要任務、成本／延遲偏好、同步與維護需求，再提出角色與設定變更，經你同意後才套用。流程見 [guides/initialization.md](guides/initialization.md)。
 
 ## 目錄
 

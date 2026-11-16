@@ -10,7 +10,7 @@
 - **Agent Memory Repo**：以 `MEMORY.md` 精簡索引加上互相連結的 Markdown 條目，跨 session 保存已確認的使用者背景、偏好與決策。
 - **LLM Wiki**：原始來源保持不變，由 LLM 增量整理成互相連結的 Wiki，並以 ingest／query／lint 維護。
 
-本框架在三者之上加入：保存分類、提案與獨立 review、owner decision、來源版本追蹤、有預算的定期整理，以及四個 harness 的 adapter 指南。來源與差異說明見 [instance-template/ATTRIBUTION.md](instance-template/ATTRIBUTION.md)。
+本框架在三者之上加入：保存分類、提案與獨立 review、owner decision、來源版本追蹤、有預算的定期整理，以及五個 harness 的 adapter 指南。來源與差異說明見 [instance-template/ATTRIBUTION.md](instance-template/ATTRIBUTION.md)。
 
 範本預載三個第三方 skills：遇到必要資訊或決策缺口時分輪釐清的 `grill-me`（及其依賴 `grilling`），以及新增或修改 skill 時必用的 `skill-creator`。它們隨範本 bundled，不代表你的 harness 已載入；見 [instance-template/guides/skills.md](instance-template/guides/skills.md)。
 
@@ -31,6 +31,7 @@
 | Claude Code | [claude-code.md](instance-template/adapters/claude-code.md) | 官方文件查核（2026-11-15）；未做 live smoke |
 | Codex CLI | [codex-cli.md](instance-template/adapters/codex-cli.md) | 官方文件查核（2026-11-15）；未做 live smoke |
 | Pi | [pi.md](instance-template/adapters/pi.md) | 官方文件查核（2026-11-15）；未做 live smoke |
+| OpenCode | [opencode.md](instance-template/adapters/opencode.md) | 官方 V2 文件查核（2026-11-16）；未做 live smoke |
 
 「官方文件查核」只代表文件當日描述的能力；你的 installed version、帳號可用 models 與實際行為，要在初始化時查證並記錄。本框架不提供 installer、daemon 或跨 harness runner。
 
