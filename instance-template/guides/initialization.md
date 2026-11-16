@@ -17,15 +17,29 @@ git remote -v                    # 新實例應無輸出
 
 ## 2. 用途訪談
 
-分輪提問；每題附推薦答案，讓 owner 可以直接同意。只問會改變設定的問題：
+第 1 步通過後就開始，不等第 3 步的 harness 讀回。初始化一律用本實例的 `grill-me` 做這段訪談，不是遇到缺口才用：
 
-- 主要用途與主要任務；
-- 可保存與不可保存的資料、no-save 類別；
-- 操作邊界：哪些地方可修改、哪些外部寫入需要逐次確認；
-- 成本與延遲偏好；
-- 是否需要跨機同步；
-- 外部專案根目錄：須依 [projects.md](projects.md)「位置檢查」確認在 Home Repo 之外；未選擇時只停止依賴它的專案工作；
-- 是否需要定期維護，以及大致頻率。
+- **載入**：直接讀 [.agents/skills/grill-me/SKILL.md](../.agents/skills/grill-me/SKILL.md)，照它讀相對路徑的 `../grilling/SKILL.md`。只有確認原生 skill 工具載入的是本實例路徑時才改用工具；有同名的使用者／全域 skill 或來源無法確認時，用直接讀取。
+- **範圍**：本步的 design tree 就是下方題綱，對應 SETUP.md「用途訪談」各欄與 owner 主要使用的 harness，不另做問卷。
+- **分輪**：每輪只問前提已確定的題目，每題附推薦答案，措辭讓 owner 回答「是」即採納。題目多時可拆成 2–3 題的小輪，不強制固定數量；答案改變後續題目時重算下一輪。
+- **事實自己查**：已安裝哪些 harness（例如 `command -v <cli>`、`<cli> --version`）、候選路徑是否存在、位置檢查結果等，先自己查，把結果寫進題目，只請 owner 做決定。
+- **沿用與重設**：會話中或 SETUP.md 已有 owner 確認的答案不重問；重新設定時只問 owner 指定的範圍。已有效的授權不要求再次確認。
+- **未決定**：只有 owner 的回答算數，沉默、逾時不算採納推薦答案。未答或 owner 暫不決定的欄位寫「未決定」，不套用推薦值或預設值；只停止依賴它的步驟，其他步驟繼續。
+- **記錄**：題綱問完後摘要各欄答案，owner 確認共同理解才寫入；只寫確認後的摘要到 SETUP.md 或所屬紀錄（例如 REPOS.md），不記錄對話原文，也不寫入 no-save 內容。
+- **條件式追問**：models／effort／角色、smoke 費用、remote 與 push 時機、維護授權欄位不在本步問，分別在第 4、7、8、9 步前提成立時再用 `grill-me` 追問。任何一輪都不索取 credentials 或 tokens。
+
+題綱（推薦答案只是範例，實際依 owner 前面的答案提出）：
+
+| 輪次 | 問題 | 推薦答案範例 | 寫入 |
+|---|---|---|---|
+| 首輪 | 這個 Home Repo 的主要用途與主要任務？ | 保存個人偏好與決策、整理研究來源、輔助外部專案 | 主要用途、主要任務 |
+| 首輪 | 已查到安裝了哪些 harness；主要使用哪一個？ | 平常每天使用的那一個 | 「Harness 能力證據」要查證的列（第 3 步） |
+| 首輪 | 可保存哪些資料、哪些不可保存（no-save 類別）？ | 可存偏好、決策、教訓與來源摘要；不存 credentials、對話原文與他人個資 | 可保存／不可保存的資料 |
+| 首輪 | 哪些地方可修改、哪些外部寫入要逐次確認？ | 只改本實例；push、發布與其他外部寫入逐次確認 | 操作邊界 |
+| 次輪（依主要任務與 harness） | 成本與延遲偏好？ | 日常任務平衡成本，review 優先品質 | 成本與延遲偏好 |
+| 次輪（依主要任務） | 外部專案根目錄放哪裡、哪些專案列入索引？依 [projects.md](projects.md)「位置檢查」確認在 Home Repo 之外 | 用通過位置檢查的既有工作目錄；先不列專案，用到再補。主要任務不含外部專案時：先不設定 | 外部專案根目錄、[REPOS.md](../REPOS.md) |
+| 次輪（依資料邊界） | 需要跨機同步嗎？ | 先不同步（`none`） | 同步需求 |
+| 次輪（依主要用途） | 需要定期維護嗎？大致頻率？ | 先不啟用，需要時再設定 | 維護需求 |
 
 完成條件：SETUP.md「用途訪談」每欄有 owner 確認的答案，或明確寫「未決定」。
 
@@ -45,7 +59,7 @@ git remote -v                    # 新實例應無輸出
 
 ## 4. 角色與設定提案
 
-依 [roles.md](roles.md) 產出提案表，表後附具體設定 diff：要新增或修改的檔案、欄位與值，以及會保留的既有設定。Model 與 effort 只用第 3 步取得的值；不支援或未知時列出替代方案，讓 owner 選擇。替代方案需要安裝或升級第三方擴充時，該部分依 [extensions.md](extensions.md) 另走提案、review 與授權，不在本步直接套用。
+依 [roles.md](roles.md) 產出提案表，表後附具體設定 diff：要新增或修改的檔案、欄位與值，以及會保留的既有設定。Model 與 effort 只用第 3 步取得的值；不支援或未知時列出替代方案，讓 owner 選擇。用 `grill-me` 一輪提出：從最少角色開始，說明成本與延遲取捨，每項以提案值為推薦答案，問 owner 接受或調整；不請 owner 自己想 model ID 或 effort 值。替代方案需要安裝或升級第三方擴充時，該部分依 [extensions.md](extensions.md) 另走提案、review 與授權，不在本步直接套用。
 
 完成條件：owner 對提案表與 diff 明確同意、修改或拒絕；未同意的部分不套用。
 
@@ -66,13 +80,13 @@ git remote -v                    # 新實例應無輸出
 
 ## 7. 最小 smoke
 
-只在 owner 同意（含可能的費用）後執行 adapter 列出的最小 smoke：先無工具的單次回應；有設定角色時，再由主 session 派一個最小 child 任務給該角色。記錄實際 model／effort 的證據；模型自我描述不算證據。
+只在 owner 同意（含可能的費用）後執行 adapter 列出的最小 smoke；尚無有效授權時用 `grill-me` 問範圍與可能費用，已有效授權不重問。Smoke 內容：先無工具的單次回應；有設定角色時，再由主 session 派一個最小 child 任務給該角色。記錄實際 model／effort 的證據；模型自我描述不算證據。
 
 完成條件：SETUP.md「Smoke」記錄結果；未執行者寫 `not-run` 與原因。設定已寫入不等於 smoke 通過。
 
 ## 8. 同步（選用）
 
-owner 想跨機同步時：
+第 2 步「同步需求」為需要時，才用 `grill-me` 依序追問以下項目；不需要或未決定就維持 `none`：
 
 1. 由 owner 指定 remote 位置；先確認它是 private（例如 GitHub：`gh repo view <owner>/<repo> --json visibility`），結果記入 SETUP.md。
 2. owner 同意後才 `git remote add`，並記錄可 push 的 branch 與時機。
@@ -81,7 +95,7 @@ owner 想跨機同步時：
 
 ## 9. 定期維護授權
 
-owner 需要定期維護時，依 [maintenance.md](maintenance.md) 逐欄取得同意並填入 [maintenance/state.md](../maintenance/state.md)，再依 adapter 設定排程（或選 `session-due-check`）。設定完成、人工 dry run、實際觸發分開記錄。owner 不同意或未決定：維持 `status: not-enabled`。
+第 2 步「維護需求」為需要時，才用 `grill-me` 依 [maintenance.md](maintenance.md) 分輪逐欄取得同意並填入 [maintenance/state.md](../maintenance/state.md)，再依 adapter 設定排程（或選 `session-due-check`）。設定完成、人工 dry run、實際觸發分開記錄。owner 不同意或未決定：維持 `status: not-enabled`。
 
 完成條件：`state.md` 為 `enabled`（授權欄位齊全）或 `not-enabled`。
 

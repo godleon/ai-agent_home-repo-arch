@@ -39,7 +39,7 @@ git remote -v                           # 必須沒有任何輸出
 
 ## 3. 在新實例中初始化
 
-在新目錄啟動你的 harness（GitHub Copilot CLI、Claude Code、Codex CLI 或 Pi），要求「初始化這個 Home Repo」。Agent 會讀新實例的 `AGENTS.md`，經 `home-init` skill 進入初始化 guide。Harness 沒有自動發現 skills 時，請它直接讀 `.agents/skills/home-init/SKILL.md`。
+在新目錄啟動你的 harness（GitHub Copilot CLI、Claude Code、Codex CLI 或 Pi），要求「初始化這個 Home Repo」。Agent 會讀新實例的 `AGENTS.md`，經 `home-init` skill 進入初始化 guide：先做唯讀的位置與 remote 檢查，再以預載的 `grill-me` 分輪問你用途、harness 與資料邊界等問題，每題附推薦答案，等你回答。Harness 沒有自動發現 skills 時，請它直接讀 `.agents/skills/home-init/SKILL.md`。
 
 ## 之後更新框架
 

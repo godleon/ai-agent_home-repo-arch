@@ -12,7 +12,7 @@
 
 | 任務 | Skill | Guide |
 |---|---|---|
-| 初始化、重設 harness／角色／維護授權 | `home-init` | [initialization](guides/initialization.md)、[roles](guides/roles.md) |
+| 初始化、重設 harness／角色／維護授權（位置檢查後先以 `grill-me` 做用途訪談） | `home-init` | [initialization](guides/initialization.md)、[roles](guides/roles.md) |
 | 保存或查詢 owner 的背景、偏好、目標、決策、教訓 | `home-memory` | [memory](guides/memory.md) |
 | 來源 ingest、研究、Wiki query／lint | `home-wiki` | [wiki](guides/wiki.md)、[sources](guides/sources.md) |
 | 定期整理、反思 | `home-maintenance` | [maintenance](guides/maintenance.md)、[reflection](guides/reflection.md) |
